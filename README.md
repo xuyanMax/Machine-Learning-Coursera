@@ -22,7 +22,7 @@ Gradient Descend
 
 #### Learning Rate (Hyperparameters are the knobs programmers tweak in ML)
 Learning Rate
-: Gradient descent algorithms multiply the gradient by a scalar known as the learning rate (also sometimes called step size) to determine the next point
+> Gradient descent algorithms multiply the gradient by a scalar known as the learning rate (also sometimes called step size) to determine the next point
 
 #### Batch
 Batch
