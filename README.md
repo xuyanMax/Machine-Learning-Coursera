@@ -1,12 +1,12 @@
 # Machine-Learning
 ## ML Concepts
-### Framing
+###1. Framing
 #### Key ML Terminology 
 - Regression & Classification: predict continuous & discrete values
 - Models: defines the relationship between features and label
 - Labels & Features: a label is the thing we're predicting; a feature is an input variable
 
-### Descending to ML
+###2. Descending to ML
 #### Training & Loss
 Training
 > learning (determining) good values for all the weights and the bias from labeled examples. In supervised learning, a machine learning algorithm builds a model by examining many examples and attempting to find a model that minimizes loss; this process is called empirical risk minimization.
@@ -14,7 +14,7 @@ Training
 loss 
 > is a number indicating how bad the model's prediction was on a single example
 
-### Reducing Loss
+###3. Reducing Loss
 #### Gradient Descent
 
 _Gradient Descent_
@@ -42,11 +42,8 @@ Stochastic Gradient Descent
 
 Mini-Batch SGD
 > a compromise between full-batch iteration and SGD. A mini-batch is typically between 10 and 1,000 examples, chosen at random. Mini-batch SGD reduces the amount of noise in SGD but is still more efficient than full-batch. 相对于随机梯度下降，`Mini-batch梯度下降降低了收敛波动性`，即降低了参数更新的方差，使得更新更加稳定。相对于全量梯度下降，其`提高了每次学习的速度`。并且其不用担心内存瓶颈从而可以利用矩阵运算进行高效计算。一般而言每次更新随机选择[50,256]个样本进行学习，但是也要根据具体问题而选择，实践中可以进行多次试验，选择一个更新速度与更次次数都较适合的样本数。`mini-batch梯度下降可以保证收敛性，常用于神经网络中`。 
-
-## Tensorflow 
-> A computational framework for building machine learning models. TF provides a variety of toolkits that allow you to construct models at your preferred level of abstraction. You can use low-level APIs to build models by defining a searies of mathematical operations. Alternatively, you can use higher-lver APIs(like tf.estimator) to specify predefined architectures, such as linear regressors or neural networks. 
  
-### Training & Test Sets
+###4. Training & Test Sets
 
 Most of time, we split the data into training set and testing set, with a ratio of 8:2. With two partitions, the workflow could look as: 
 1. train model on `training set`
@@ -66,13 +63,13 @@ However good it is, training and test sets partition is not a panacea. Dividing 
 - Large enough to yield statistically meaningful results 
 - Representative of the data set as a whole. In other words, never pick a test set with different characteristics/features than the training set
 
-### Representations
+###5. Representations
 #### Feature Engineering
 >transform raw data into a feature vector
 
 **Mapping numeric values** 
 
-Integer and floating-point data doesn't need a special encoding. Mapping Integer values to Float values is unnecessary.
+Integer and floating-point data don't need a special encoding. Mapping Integer values to Float values is unnecessary.
 
 **Mapping categorical values**
 
@@ -80,14 +77,44 @@ Like sign language and rock-paper-scissor datasets, they are categorical feature
 - for values that apply to the example, set corresponding vector element(s) to 1
 - set all other elements to 0
 
+**Constraints?**
+
 **One-hot encoding** - a single value is 1 in a vector
 
 **Multi-hot encoding** - multiple values are 1 in a vector
 
 #### Qualities of Good Features
 
-What makes good features? 
-- Avoid rarely used discrete feature values (appearance in the dataset <= 5). 
+**What makes good features? **
+- Avoid rarely used discrete feature values (appearance in the dataset <= 5).
+- Clear and obvious meanings 
+- No `magic` values (accentricity, out of actual range) with actual data. 
+
+**Deal with accentric values**
+
+- For discrete variables, add a new value to the set and use it to signify that the feature value is missing. For example, create a Boolean feature that indicates whether or not a this feature was supplied.
+- For continuous variables, ensure missing values don't affect the model by using the `mean` value of the feature's data.
+
+#### Cleaning Data
+
+##### SCALING FEATURE VALUES
+> convert feature values into a `standard range` (like [-1, 1], [0, 1]). 
+ 
+Feature Scaling is no point for linear regression where there is only a single feature, but it provides a lot benefits for multiple features problem: 
+- help gradient descent converge more quickly.
+- help avoid the `NaN trap`, in which one number can overflows the precision.
+- help the model learn appropriate weight for each feature. Without feature scaling, the model will pay much more attention to the features having a wide range.
+
+
+**Handle extreme outliers**
+
+For a feature distribution having a lonnng tail, we could take the log of every value `log(val + 1)`. Log scaling usually does a better job. 
+
+Sometimes, taking log operations still leaves a significant tail of outlier values. We need `clip` the maximum value of the feature at an arbitrary value, say X. In other words, we don't ignore those outliers but make those greater than X to be X. 
+
+##### Bining 
+
+##### Scrubbing 
 
 
 
