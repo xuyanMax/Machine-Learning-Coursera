@@ -1,12 +1,12 @@
 # Machine-Learning
 ## ML Concepts
-###1. Framing
+### 1. Framing
 #### Key ML Terminology 
 - Regression & Classification: predict continuous & discrete values
 - Models: defines the relationship between features and label
 - Labels & Features: a label is the thing we're predicting; a feature is an input variable
 
-###2. Descending to ML
+### 2. Descending to ML
 #### Training & Loss
 Training
 > learning (determining) good values for all the weights and the bias from labeled examples. In supervised learning, a machine learning algorithm builds a model by examining many examples and attempting to find a model that minimizes loss; this process is called empirical risk minimization.
@@ -14,7 +14,7 @@ Training
 loss 
 > is a number indicating how bad the model's prediction was on a single example
 
-###3. Reducing Loss
+### 3. Reducing Loss
 #### Gradient Descent
 
 _Gradient Descent_
@@ -43,7 +43,7 @@ Stochastic Gradient Descent
 Mini-Batch SGD
 > a compromise between full-batch iteration and SGD. A mini-batch is typically between 10 and 1,000 examples, chosen at random. Mini-batch SGD reduces the amount of noise in SGD but is still more efficient than full-batch. 相对于随机梯度下降，`Mini-batch梯度下降降低了收敛波动性`，即降低了参数更新的方差，使得更新更加稳定。相对于全量梯度下降，其`提高了每次学习的速度`。并且其不用担心内存瓶颈从而可以利用矩阵运算进行高效计算。一般而言每次更新随机选择[50,256]个样本进行学习，但是也要根据具体问题而选择，实践中可以进行多次试验，选择一个更新速度与更次次数都较适合的样本数。`mini-batch梯度下降可以保证收敛性，常用于神经网络中`。 
  
-###4. Training & Test Sets
+### 4. Training & Test Sets
 
 Most of time, we split the data into training set and testing set, with a ratio of 8:2. With two partitions, the workflow could look as: 
 1. train model on `training set`
@@ -63,7 +63,7 @@ However good it is, training and test sets partition is not a panacea. Dividing 
 - Large enough to yield statistically meaningful results 
 - Representative of the data set as a whole. In other words, never pick a test set with different characteristics/features than the training set
 
-###5. Representations
+### 5. Representations
 #### Feature Engineering
 >transform raw data into a feature vector
 
