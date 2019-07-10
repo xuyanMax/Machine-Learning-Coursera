@@ -85,7 +85,7 @@ Like sign language and rock-paper-scissor datasets, they are categorical feature
 
 #### Qualities of Good Features
 
-**What makes good features? **
+**What makes good features?**
 - Avoid rarely used discrete feature values (appearance in the dataset <= 5).
 - Clear and obvious meanings 
 - No `magic` values (accentricity, out of actual range) with actual data. 
