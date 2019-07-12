@@ -155,6 +155,9 @@ The cross feature will be a 25-element on-hot vector(24 zeros and 1 one), in whi
 **Overfitting** 
 > If we use a model that is too complicated, such as one with too many crosses, we give it the opportunity to fit to the noise in the training data, often at the cost of making the model perform badly on test data.
  
+ **Regularization**
+ > A way to prevent overfitting by penalizing complex models, a principle called regularization.
+ 
 #### 8.1. L2 Regularization
 #### 8.2. Lambda 
 ### 9. Logistic Regression
