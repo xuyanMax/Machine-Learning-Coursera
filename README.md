@@ -152,13 +152,39 @@ The cross feature will be a 25-element on-hot vector(24 zeros and 1 one), in whi
 
 ### 7. Regularization: simplicity 
 
+**Overfitting** 
+> If we use a model that is too complicated, such as one with too many crosses, we give it the opportunity to fit to the noise in the training data, often at the cost of making the model perform badly on test data.
+#### 1. L2 Regularization
+#### 2. Lambda 
 ### 8. Logistic Regression
+#### 1. Calculating a Probability
+#### 2. Loss and Regularization
 
 ### 9. Classification 
+#### 1. Thresholding
+#### 2. Accuracy
+#### 3. Precision and Recall
+#### 4. ROC Curve and AUC
+#### 5. Prediction Bias
 
 ### 10. Regularization: sparsity 
+#### 1. L1 Regularization
 
 ### 10. Neural networks
+#### 1. Structure 
+
+### 11. Train Neural networks
+#### Best Practices
+
+### 12. Multi-Class Neural Nets
+#### 1. One vs. All
+#### 2. Softman
+
+### 13. Embeddings 
+#### 1. Motivation from Collaborative Filtering
+#### 2. Categorical Input Data
+#### 3. Translating to a Lower Dimensional space
+#### 4. Obtaining Embeddings
 
 
 
