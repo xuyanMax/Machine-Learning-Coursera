@@ -1,13 +1,13 @@
 # Machine-Learning
 ## ML Concepts
 ### 1. Framing
-#### Key ML Terminology 
+#### 1.1 Key ML Terminology 
 - Regression & Classification: predict continuous & discrete values
 - Models: defines the relationship between features and label
 - Labels & Features: a label is the thing we're predicting; a feature is an input variable
 
 ### 2. Descending to ML
-#### Training & Loss
+#### 2.1 Training & Loss
 Training
 > learning (determining) good values for all the weights and the bias from labeled examples. In supervised learning, a machine learning algorithm builds a model by examining many examples and attempting to find a model that minimizes loss; this process is called empirical risk minimization.
 
@@ -15,23 +15,23 @@ loss
 > is a number indicating how bad the model's prediction was on a single example
 
 ### 3. Reducing Loss
-#### Gradient Descent
+#### 3.1 Gradient Descent
 
 _Gradient Descent_
 > The gradient always points in the direction of steepest increase in the loss function. The gradient descent algorithm takes a step in the direction of the negative gradient in order to reduce loss as quickly as possible.
 
-#### Gradient Descent Optimizations
+#### 3.2 Gradient Descent Optimizations
 > todo 
 
-#### Learning Rate (Hyperparameters are the knobs programmers tweak in ML)
+#### 3.3 Learning Rate (Hyperparameters are the knobs programmers tweak in ML)
 Learning Rate
 > Gradient descent algorithms multiply the gradient by a scalar known as the learning rate (also sometimes called step size) to determine the next point
 
-#### Batch
+#### 3.4 Batch
 Batch
 > a batch is the total number of examples you use to calculate the gradient in a single iteration
 
-#### Stochastic Gradient Descent (SGD)
+#### 3.5 Stochastic Gradient Descent (SGD)
 
 Batch Gradient Descent
 > 每次使用`全量的训练集`样本来更新模型参数; 批量梯度下降每次学习都使用`整个训练集`，因此其`优点`在于每次更新都会朝着正确的方向进行，最后能够保证收敛于极值点(凸函数收敛于全局极值点，非凸函数可能会收敛于局部极值点)，但是其`缺点`在于每次学习时间过长，并且如果训练集很大以至于需要消耗大量的内存，并且全量梯度下降不能进行在线模型参数更新。
@@ -64,7 +64,7 @@ However good it is, training and test sets partition is not a panacea. Dividing 
 - Representative of the data set as a whole. In other words, never pick a test set with different characteristics/features than the training set
 
 ### 5. Representations
-#### Feature Engineering
+#### 5.1 Feature Engineering
 >transform raw data into a feature vector
 
 **Mapping numeric values** 
@@ -95,9 +95,9 @@ Like sign language and rock-paper-scissor datasets, they are categorical feature
 - For discrete variables, add a new value to the set and use it to signify that the feature value is missing. For example, create a Boolean feature that indicates whether or not a this feature was supplied.
 - For continuous variables, ensure missing values don't affect the model by using the `mean` value of the feature's data.
 
-#### Cleaning Data
+#### 6. Cleaning Data
 
-##### 1. SCALING FEATURE VALUES
+##### 6.1. SCALING FEATURE VALUES
 > convert feature values into a `standard range` (like [-1, 1], [0, 1]). 
  
 Feature Scaling is no point for linear regression where there is only a single feature, but it provides a lot benefits for multiple features problem: 
@@ -111,7 +111,7 @@ For a feature distribution having a lonnng tail, we could take the log of every 
 
 Sometimes, taking log operations still leaves a significant tail of outlier values. We need `clip` the maximum value of the feature at an arbitrary value, say X. In other words, we don't ignore those outliers but make those greater than X to be X. 
 
-##### 2. Bining 
+##### 6.2. Bining 
 
 Features like `hourse_latitude`, it doesn't make sense to represent `latitude` as a floating point feature in the model in that there is no linear relationship between lattitude and housing values. In addition, individual latitudes probably are not a good indicator of house values. 
 
@@ -131,17 +131,17 @@ def select_and_transform_features(source_df):
 
 ```
 
-##### 3. Scrubbing 
+##### 6.3. Scrubbing 
 
-### 6. Feature Crosses
+### 7. Feature Crosses
  > A feature cross is a synthetic feature that encodes nonlinearity in the feature space by multiplying two or more input features together. (The term cross comes from cross product.) Let's create a feature cross named x3 by crossing x1 and x2: x3 = x1*x2
  
-#### Kinds of feature crosses
+#### 7.1 Kinds of feature crosses
  - [x1*x2]: cross product of two features 
  - [x1*x2*x3*x4...*xn]: cross product of multiple features
  - [x1*x1]: square of a feature
 
-#### Crossing One-Hot Vectors
+#### 7.2 Crossing One-Hot Vectors
 Usually, cross product seldom happens to models with continuous features, but it does frequently happens to one-hot feature vectors. You can think of feature cross of one-hot featur vectors as `logical conjunction`.  For example, you bin `latitude` and `longitude`, generating one-hot five-element feature vectors. 
 
 `binned_latitude=[0, 0, 1, 0, 0]`
@@ -150,41 +150,42 @@ Usually, cross product seldom happens to models with continuous features, but it
 
 The cross feature will be a 25-element on-hot vector(24 zeros and 1 one), in which the single one identifies a particular conjunction of latitude and longitude, which may be a good indicator of house values.
 
-### 7. Regularization: simplicity 
+### 8. Regularization: simplicity 
 
 **Overfitting** 
 > If we use a model that is too complicated, such as one with too many crosses, we give it the opportunity to fit to the noise in the training data, often at the cost of making the model perform badly on test data.
-#### 1. L2 Regularization
-#### 2. Lambda 
-### 8. Logistic Regression
-#### 1. Calculating a Probability
-#### 2. Loss and Regularization
+ 
+#### 8.1. L2 Regularization
+#### 8.2. Lambda 
+### 9. Logistic Regression
+#### 9.1. Calculating a Probability
+#### 9.2. Loss and Regularization
 
-### 9. Classification 
-#### 1. Thresholding
-#### 2. Accuracy
-#### 3. Precision and Recall
-#### 4. ROC Curve and AUC
-#### 5. Prediction Bias
+### 10. Classification 
+#### 10.1. Thresholding
+#### 10.2. Accuracy
+#### 10.3. Precision and Recall
+#### 10.4. ROC Curve and AUC
+#### 10.5. Prediction Bias
 
-### 10. Regularization: sparsity 
-#### 1. L1 Regularization
+### 11. Regularization: sparsity 
+#### 11.1. L1 Regularization
 
-### 10. Neural networks
-#### 1. Structure 
+### 12. Neural networks
+#### 12.1. Structure 
 
-### 11. Train Neural networks
-#### Best Practices
+### 13. Train Neural networks
+#### 13.1 Best Practices
 
-### 12. Multi-Class Neural Nets
-#### 1. One vs. All
-#### 2. Softman
+### 14. Multi-Class Neural Nets
+#### 14.1. One vs. All
+#### 14.2. Softman
 
-### 13. Embeddings 
-#### 1. Motivation from Collaborative Filtering
-#### 2. Categorical Input Data
-#### 3. Translating to a Lower Dimensional space
-#### 4. Obtaining Embeddings
+### 15. Embeddings 
+#### 15.1. Motivation from Collaborative Filtering
+#### 15.2. Categorical Input Data
+#### 15.3. Translating to a Lower Dimensional space
+#### 15.4. Obtaining Embeddings
 
 
 
