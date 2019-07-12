@@ -148,5 +148,17 @@ Usually, cross product seldom happens to models with continuous features, but it
 
 `binned_longitude=[0, 1, 0, 0, 0]`
 
+The cross feature will be a 25-element on-hot vector(24 zeros and 1 one), in which the single one identifies a particular conjunction of latitude and longitude, which may be a good indicator of house values.
+
+### 7. Regularization: simplicity 
+
+### 8. Logistic Regression
+
+### 9. Classification 
+
+### 10. Regularization: sparsity 
+
+### 10. Neural networks
+
 
 
