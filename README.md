@@ -105,7 +105,6 @@ Feature Scaling is no point for linear regression where there is only a single f
 - help avoid the `NaN trap`, in which one number can overflows the precision.
 - help the model learn appropriate weight for each feature. Without feature scaling, the model will pay much more attention to the features having a wide range.
 
-
 **Handle extreme outliers**
 
 For a feature distribution having a lonnng tail, we could take the log of every value `log(val + 1)`. Log scaling usually does a better job. 
@@ -113,6 +112,24 @@ For a feature distribution having a lonnng tail, we could take the log of every 
 Sometimes, taking log operations still leaves a significant tail of outlier values. We need `clip` the maximum value of the feature at an arbitrary value, say X. In other words, we don't ignore those outliers but make those greater than X to be X. 
 
 ##### Bining 
+
+Features like `hourse_latitude`, it doesn't make sense to represent `latitude` as a floating point feature in the model in that there is no linear relationship between lattitude and housing values. In addition, individual latitudes probably are not a good indicator of house values. 
+
+Therefore, we divide latitude into `bins` or `buckets` such as `latitudeBin1`, `latitudeBin2`, ..., `latitudeBin11`. Instead of having 11 separate features, it is better to unite them into a single 11-element vector.
+
+`[0, 0, 0, 0, 1, 0, 0, 0, ,0, 0, 0]`
+
+```python
+def select_and_transform_features(source_df):
+  LATITUDE_RANGES = zip(range(32, 44), range(33, 45))
+  selected_examples = pd.DataFrame()
+  selected_examples["median_income"] = source_df["median_income"]
+  for r in LATITUDE_RANGES:
+    selected_examples["latitude_%d_to_%d" % r] = source_df["latitude"].apply(
+      lambda l: 1.0 if l >= r[0] and l < r[1] else 0.0)
+  return selected_examples
+
+```
 
 ##### Scrubbing 
 
