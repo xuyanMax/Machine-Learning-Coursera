@@ -97,7 +97,7 @@ Like sign language and rock-paper-scissor datasets, they are categorical feature
 
 #### Cleaning Data
 
-##### SCALING FEATURE VALUES
+##### 1. SCALING FEATURE VALUES
 > convert feature values into a `standard range` (like [-1, 1], [0, 1]). 
  
 Feature Scaling is no point for linear regression where there is only a single feature, but it provides a lot benefits for multiple features problem: 
@@ -111,7 +111,7 @@ For a feature distribution having a lonnng tail, we could take the log of every 
 
 Sometimes, taking log operations still leaves a significant tail of outlier values. We need `clip` the maximum value of the feature at an arbitrary value, say X. In other words, we don't ignore those outliers but make those greater than X to be X. 
 
-##### Bining 
+##### 2. Bining 
 
 Features like `hourse_latitude`, it doesn't make sense to represent `latitude` as a floating point feature in the model in that there is no linear relationship between lattitude and housing values. In addition, individual latitudes probably are not a good indicator of house values. 
 
@@ -131,7 +131,22 @@ def select_and_transform_features(source_df):
 
 ```
 
-##### Scrubbing 
+##### 3. Scrubbing 
+
+### 6. Feature Crosses
+ > A feature cross is a synthetic feature that encodes nonlinearity in the feature space by multiplying two or more input features together. (The term cross comes from cross product.) Let's create a feature cross named x3 by crossing x1 and x2: x3 = x1*x2
+ 
+#### Kinds of feature crosses
+ - [x1*x2]: cross product of two features 
+ - [x1*x2*x3*x4...*xn]: cross product of multiple features
+ - [x1*x1]: square of a feature
+
+#### Crossing One-Hot Vectors
+Usually, cross product seldom happens to models with continuous features, but it does frequently happens to one-hot feature vectors. You can think of feature cross of one-hot featur vectors as `logical conjunction`.  For example, you bin `latitude` and `longitude`, generating one-hot five-element feature vectors. 
+
+`binned_latitude=[0, 0, 1, 0, 0]`
+
+`binned_longitude=[0, 1, 0, 0, 0]`
 
 
 
