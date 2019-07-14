@@ -26,7 +26,7 @@ p = zeros(size(X, 1), 1);
 %
 
 z_2 = Theta1 * X'; % 25 * 5000
-a_2 = sigmoid(z_2);
+a_2 = sigmoid(z_2); 
 a_2 = [ones(1,size(a_2,2));a_2]; %26*5000
 z_3 = Theta2 * a_2; %10*5000
 a_3 = sigmoid(z_3);

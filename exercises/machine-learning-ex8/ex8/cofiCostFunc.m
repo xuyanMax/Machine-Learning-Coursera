@@ -49,7 +49,7 @@ J= (1/2) * sum(sum( power((R .* (X * Theta' - Y)), 2) ));
 
 
 for movie = 1:num_movies
-	idx = find(R(movie, :) ==1);
+	idx = find(R(movie, :) == 1);
 	Theta_tmp = Theta(idx,:);
 	Y_tmp = Y(movie, idx);
 	X_grad(movie,:) = (X(movie,:) * Theta_tmp' - Y_tmp) * Theta_tmp;

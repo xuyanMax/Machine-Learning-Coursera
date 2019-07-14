@@ -158,7 +158,7 @@ pause;
 
 
 %% ================== Part 7: Learning Movie Ratings ====================
-%  Now, you will train the collaborative filtering model on a movie rating 
+%  Now, you will TRAIN the collaborative filtering MODEL on a movie rating 
 %  dataset of 1682 movies and 943 users
 %
 
