@@ -290,7 +290,19 @@ But, it becomes increasingly inefficient as the number of classes rises.
 
 We can create a significantly more efficient one-vs-all model with a DNN in which each output node represents a different class. 
 
-#### 14.2. Softman
+#### 14.2. Softmax
+Softmax is implemented through a neural network layer just before the output layer. The Softmax layer must have the same number of nodes as the output layer.
+
+Softmax assigns decimal probabilities to each class in a multi-class problem. Those decimal probabilities must add up to 1.0. This additional constraint helps training converge more quickly than it otherwise would.
+
+**Softmax Options**
+- **Full softmax**
+- **Candidate sampling** 
+- 
+**One Label vs. Many Labels**
+Softmax assumes that each example is a member of `exactly one class`. Some examples, however, can simultaneously be a member of multiple classes. For such examples:
+- You may not use Softmax.
+- You must rely on multiple logistic regressions.
 
 ### 15. Embeddings 
 #### 15.1. Motivation from Collaborative Filtering
