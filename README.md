@@ -165,6 +165,8 @@ In other words, instead of simply aiming to minimize loss (empirical risk minimi
 
 we'll now minimize `loss+complexity`, which is called `structural risk minimization`:
 
+`minimize(Loss(Data|Model|) + complexity(Model))`
+
 Our training optimization algorithm is now a function of two terms: the loss term, which measures how well the model `fits the data`, and the regularization term, which measures `model complexity`.
 
 If model complexity is a `function of weights`, a feature weight with a high absolute value is more complex than a feature weight with a low absolute value.
@@ -179,8 +181,8 @@ Model developers tune the overall impact of the regularization term by multiplyi
 `minimize(Loss(Data|Model|) + LAMBDA*complexity(Model))`
 
 When choosing a lambda value, the goal is to strike the right balance between simplicity and training-data fit:
-    - If your lambda value is `too high`, your model will be `simple`, but you run the risk of `underfitting` your data. Your model won't learn enough about the training data to make useful predictions.
-    - If your lambda value is `too low`, your model will be more `complex`, and you run the risk of `overfitting` your data. Your model will learn too much about the particularities of the training data, and won't be able to generalize to new data
+- If your lambda value is `too high`, your model will be `simple`, but you run the risk of `underfitting` your data. Your model won't learn enough about the training data to make useful predictions.
+- If your lambda value is `too low`, your model will be more `complex`, and you run the risk of `overfitting` your data. Your model will learn too much about the particularities of the training data, and won't be able to generalize to new data
 
 ### 9. Logistic Regression
 #### 9.1. Calculating a Probability
