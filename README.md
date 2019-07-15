@@ -206,8 +206,22 @@ Most logistic regression models use one of the following two strategies to `damp
 
 ### 10. Classification 
 #### 10.1. Thresholding
+In order to map a logistic regression value to a binary category, you must define a `classification threshold` (also called the `decision threshold`)
+
+#### 10.2 True vs. Flase; Positive vs. Negative
+
+**A true positive** is an outcome where the model correctly predicts the positive class. Similarly, **a true negative** is an outcome where the model correctly predicts the negative class.
+
+**A false positive** is an outcome where the model incorrectly predicts the positive class. And **a false negative** is an outcome where the model incorrectly predicts the negative class.
 #### 10.2. Accuracy
+> Accuracy alone doesn't tell the full story when you're working with a class-imbalanced data set, like this one, where there is a significant disparity between the number of positive and negative labels.
+
+`Accuracy = (TP+TN)/(TP+TN+FN+FP)`
 #### 10.3. Precision and Recall
+**Precision**
+> Proportion of positive identifications was actually correct
+**Recall**
+> Proportion of ACTUAL positives was identified correctly.
 #### 10.4. ROC Curve and AUC
 #### 10.5. Prediction Bias
 
