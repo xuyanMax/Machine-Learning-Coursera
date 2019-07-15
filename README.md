@@ -282,9 +282,14 @@ Lowering the learning rate can help keep ReLU units from dying.
 **Dropout Regularization**
 It works by randomly "dropping out" `unit activations` in a network for a single gradient step. The more dropping out, the stronger the regularization.
 
-
 ### 14. Multi-Class Neural Nets
 #### 14.1. One vs. All
+A **one-vs-all** solutions consists of N separate binary classifiers-one binary classifier for each possible outcome. 
+
+But, it becomes increasingly inefficient as the number of classes rises. 
+
+We can create a significantly more efficient one-vs-all model with a DNN in which each output node represents a different class. 
+
 #### 14.2. Softman
 
 ### 15. Embeddings 
