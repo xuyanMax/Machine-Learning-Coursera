@@ -219,7 +219,8 @@ In order to map a logistic regression value to a binary category, you must defin
 `Accuracy = (TP+TN)/(TP+TN+FN+FP)`
 #### 10.3. Precision and Recall
 **Precision**
-> Proportion of positive identifications was actually correct
+> Proportion of positive identifications was actually correct.
+
 **Recall**
 > Proportion of ACTUAL positives was identified correctly.
 #### 10.4. ROC Curve and AUC
