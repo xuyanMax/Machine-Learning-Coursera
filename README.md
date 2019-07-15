@@ -159,6 +159,20 @@ The cross feature will be a 25-element on-hot vector(24 zeros and 1 one), in whi
  > A way to prevent overfitting by penalizing complex models, a principle called regularization.
  
 #### 8.1. L2 Regularization
+we could prevent overfitting by `penalizing complex models`, a principle called `regularization`.
+
+In other words, instead of simply aiming to minimize loss (empirical risk minimization):
+
+we'll now minimize `loss+complexity`, which is called `structural risk minimization`:
+
+Our training optimization algorithm is now a function of two terms: the loss term, which measures how well the model `fits the data`, and the regularization term, which measures `model complexity`.
+
+If model complexity is a `function of weights`, a feature weight with a high absolute value is more complex than a feature weight with a low absolute value.
+
+We can quantify complexity using the L2 regularization formula, which defines the regularization term as the `sum of the squares` of all the feature weights
+
+In this formula, weights close to zero have little effect on model complexity, while outlier weights can have a huge impact.
+
 #### 8.2. Lambda 
 ### 9. Logistic Regression
 #### 9.1. Calculating a Probability
