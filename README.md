@@ -228,6 +228,32 @@ In order to map a logistic regression value to a binary category, you must defin
 
 ### 11. Regularization: sparsity 
 #### 11.1. L1 Regularization
+Sparse vectors often contain many dimensions. Creating a `feature cross` results in even more dimensions. Given such high-dimensional feature vectors, model size may become huge and require `huge amounts of RAM`.
+
+So we can use L1 regularization to encourage many of uninformative coefficients in our model to be exactly 0, and thus reap RAM savings at inference time. 
+
+**11.2 L1 vs. L2 regularization**
+
+L2 and L1 penalize weights differently:
+- L2 penalize `weight^2`
+- L1 penalize `|weight|`
+
+Consequently, L2 and L1 have different derivatives
+- the derivative of L2 is `2*weight`
+- the derivative of L1 is `k` (a constanct, whose value is independent of weight)
+
+You can think of the derivative of L2 as a force that removes x% of the weight every time. The diminished number will still never quite reach zero.
+
+You can think of the derivative of L1 as a force that subtracts some constant from the weight every time. Any subtraction less than or equal to zero , will become zeroed out. 
+
+**L1 vs. L2 in Practice**
+
+_Usually, switching from L2 to L1 regularization dramatically reduces the delta between training loss and test loss._
+
+_Switching from L2 to L1 regularization dampens all of the learnt weights_
+
+_Increasing the L1 regularization rate generally dampens the learnt weights. However, if the rate goes too high, the model cannot converge and losses are very high._
+
 
 ### 12. Neural networks
 #### 12.1. Structure 
