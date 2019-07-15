@@ -174,6 +174,14 @@ We can quantify complexity using the L2 regularization formula, which defines th
 In this formula, weights close to zero have little effect on model complexity, while outlier weights can have a huge impact.
 
 #### 8.2. Lambda 
+Model developers tune the overall impact of the regularization term by multiplying its value by a scalar known as `lambda` (also called the `regularization rate`). That is, model developers aim to do the following:
+
+`minimize(Loss(Data|Model|) + LAMBDA*complexity(Model))`
+
+When choosing a lambda value, the goal is to strike the right balance between simplicity and training-data fit:
+    - If your lambda value is `too high`, your model will be `simple`, but you run the risk of `underfitting` your data. Your model won't learn enough about the training data to make useful predictions.
+    - If your lambda value is `too low`, your model will be more `complex`, and you run the risk of `overfitting` your data. Your model will learn too much about the particularities of the training data, and won't be able to generalize to new data
+
 ### 9. Logistic Regression
 #### 9.1. Calculating a Probability
 #### 9.2. Loss and Regularization
