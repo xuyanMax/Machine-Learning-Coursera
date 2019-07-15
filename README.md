@@ -192,8 +192,17 @@ When choosing a lambda value, the goal is to strike the right balance between si
 Strong L2 regularization or lower learning rate often have the same effect, tending to drive feature weight closer to zero, not exactly zero. 
 
 ### 9. Logistic Regression
+> Instead of predicting exactly 0 or 1, logistic regression generates a probability—a value between 0 and 1, exclusive. 
+
 #### 9.1. Calculating a Probability
-#### 9.2. Loss and Regularization
+> `A sigmoid function` ensures output always falls between 0 and 1. 
+
+#### 9.2. Loss and Reg
+> The loss function for linear regression is `squared loss`. The loss function for logistic regression is `Log Loss`.
+
+Most logistic regression models use one of the following two strategies to `dampen model complexity`:
+- L2 regularization.
+- Early stopping, that is, limiting the number of training steps or the learning rate.
 
 ### 10. Classification 
 #### 10.1. Thresholding
