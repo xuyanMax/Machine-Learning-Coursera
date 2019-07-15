@@ -256,7 +256,20 @@ _Increasing the L1 regularization rate generally dampens the learnt weights. How
 
 
 ### 12. Neural networks
-#### 12.1. Structure 
+
+Nonlinear classification, like `circle`, `gaussian`, `spiral`, `exclusive or`, the `decision boundary` is no more a line. Previsouly in `feature crosses`, it is a possible approach to modelling nonlinear problems. Now we will use `Neural Network` to help with nonlinear problems.
+
+#### 12.1 Structure 
+#### 12.1.1 Hidden Layers
+> Each node in the hidden layer is a `weighted sum` of the previous input layer's node values. However the output is still a linear combination of its input, but won't effectively model the nonlinear problem. 
+ 
+#### 12.1.2 Activation Functions
+In a model, in which there are 2 hidden layers, the value of each node in Hidden Layer 1 is *transformed* by a *nonlinear function* before being passed on to the weighted sums of the next Hidden Layer 2. The nonlinear function is called the `activation function`.
+
+##### Types
+- Sigmoid: convert the weighted sum to a value between 0 and 1
+- ReLU: rectified linear unit, works a little better than sigmoid `F(x) = max(0, x)`. The reason probabaly is that ReLu has a more useful range of responsiveness while a sigmoid's responsiveness falls off relatively quickly on both sides.
+- Tanf
 
 ### 13. Train Neural networks
 #### 13.1 Best Practices
