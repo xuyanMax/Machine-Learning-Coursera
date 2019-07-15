@@ -273,6 +273,15 @@ In a model, in which there are 2 hidden layers, the value of each node in Hidden
 
 ### 13. Train Neural networks
 #### 13.1 Best Practices
+**Vanishing Gradients**
+The ReLu can help prevent vanishing gradients.
+**Exploding Gradients**
+Batch Normalization can help prevent exploding gradients, as can lowering the learning rate. 
+**Dead ReLU Units**
+Lowering the learning rate can help keep ReLU units from dying.
+**Dropout Regularization**
+It works by randomly "dropping out" `unit activations` in a network for a single gradient step. The more dropping out, the stronger the regularization.
+
 
 ### 14. Multi-Class Neural Nets
 #### 14.1. One vs. All
