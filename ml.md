@@ -270,7 +270,7 @@ In a model, in which there are 2 hidden layers, the value of each node in Hidden
 
 ##### Types
 - Sigmoid: convert the weighted sum to a value between 0 and 1
-- ReLU: rectified linear unit, works a little better than sigmoid `F(x) = max(0, x)`. The reason probabaly is that ReLu has a more useful range of responsiveness while a sigmoid's responsiveness falls off relatively quickly on both sides.
+- ReLU: `rectified linear unit`, works a little better than sigmoid `F(x) = max(0, x)`. The reason probabaly is that ReLu has a more useful range of responsiveness while a sigmoid's responsiveness falls off relatively quickly on both sides.
 - Tanf
 
 ### 13. Train Neural networks
@@ -300,7 +300,7 @@ Softmax assigns decimal probabilities to each class in a multi-class problem. Th
 **Softmax Options**
 - **Full softmax**
 - **Candidate sampling** 
-- 
+
 **One Label vs. Many Labels**
 Softmax assumes that each example is a member of `exactly one class`. Some examples, however, can simultaneously be a member of multiple classes. For such examples:
 - You may not use Softmax.
@@ -346,9 +346,20 @@ The simplest way is to define a giant input layer with a node for every word in 
     - lack of meaningful relations between vectors
 
 *The Solution: Embeddings*
+
 The solution to these problems is to use embeddings, which translate large sparse vectors into a lower-dimensional space that preserves semantic relationships.
 #### 15.3. Translating to a Lower Dimensional space
 #### 15.4. Obtaining Embeddings
+
+##### Standard Dimensionality Reduction Techniques
+There are many existing mathematical techniques for capturing the important structure of a high-dimensional space in a low dimensional space. In theory, any of these techniques could be used to create an embedding for a machine learning system
+
+##### Word2Vec
+
+##### Training an Embedding as Part of a Larger Model
+
+
+
 
 
 

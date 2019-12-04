@@ -32,7 +32,7 @@ X = [ones(m, 1) X];
 
 % the reason using X*theta is that one vs. all is multi-calss logistic regression
 % h = X * theta
-tmp = X * all_theta'; % m * k temp is a matrix of m training samples with k probabilities w.r.t. k classes.
+tmp = X * all_theta'; % result shape: m * k temp is a matrix of m training samples with k probabilities w.r.t. k classes.
 %[MatrixValue, Index]
 [~,p] = max(tmp, [], 2); % return index of max 
 
