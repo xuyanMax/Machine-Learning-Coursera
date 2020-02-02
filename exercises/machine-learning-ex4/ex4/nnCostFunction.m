@@ -23,7 +23,7 @@ Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):en
                  num_labels, (hidden_layer_size + 1));
 
 % Setup some useful variables
-m = size(X, 1);
+m = size(X, 1);%5000
          
 % You need to return the following variables correctly 
 J = 0;
@@ -65,17 +65,17 @@ Theta2_grad = zeros(size(Theta2));
 
 % part 1 implementation
 
-a1 = [ones(m,1) X]; % 100 * 401
-z2 = Theta1 * a1'; % 25 * 401 * 401 * 100 = 25 * 100
+a1 = [ones(m,1) X]; % 5000 * 401
+z2 = Theta1 * a1'; % 25 * 401 * 401 * 5000 = 25 * 5000
 a2 = sigmoid(z2);
-a2 = [ones(1, size(a2,2)); a2]; % 26 * 10
+a2 = [ones(1, size(a2,2)); a2]; % 26 * 5000
 z3 = Theta2 * a2; % 10 * 26 * 26 * 100 = 10 * 100
-a3 = sigmoid(z3); % 10 * 100
-h_theta_X = a3';  % 100 * 10
+a3 = sigmoid(z3); % 10 * 5000
+h_theta_X = a3';  % 5000 * 10
 
 y_vec = zeros(m, num_labels);
 
-% y m*k = 100 * 10
+% y m*k = 5000 * 10
 for i = 1:m
 	y_vec(i, y(i)) = 1;
 end
@@ -93,24 +93,24 @@ J = J + regularization;
 for t = 1:m
 
 	% for input layer
-	a1  = [1; X(t,:)'];
+	a1  = [1; X(t,:)'];%401*1
 
 	% for hidden layer
-	z2 = Theta1 * a1;
+	z2 = Theta1 * a1;%25*1
 	a2 = [1;sigmoid(z2)];
 
 	% for output layer
 	z3 = Theta2 * a2;
-	a3 = sigmoid(z3);
+	a3 = sigmoid(z3);%10*1
 
-	yy = ([1:num_labels] == y(t))'; % y: 5000*1 y(t) is a scalar. Ex. [1:5] ==[2] =>[0 1 0 0 0]
+	yy = ([1:num_labels] == y(t))'; % y: 10*1 y(t) is a scalar. Ex. [1:5] ==[2] =>[0 1 0 0 0]
 
-	delta_3 = a3 - yy; % k*1 
+	delta_3 = a3 - yy; % 
 
 	delta_2 = Theta2' * delta_3 .* [1;sigmoidGradient(z2)];
 
 	% remove bias unit from delta_2
-	delta_2 = delta_2(2:end);
+	delta_2 = delta_2(2:end);%25*1
 
 	% update triangle delta 
 	Theta1_grad = Theta1_grad + delta_2 * a1';
@@ -120,7 +120,7 @@ end
 
 % update big Delta
 
-% does not update simultaneously, so wrong 
+% it does not update simultaneously, so wrong 
 % Theta1_grad(:,2:end)  = (1/m)*Theta1 + (lambda/m) * Theta1(:,2:end);
 % Theta1_grad(:,1) = (1/m)*Theta1(:,1);
 
@@ -130,7 +130,6 @@ end
 % update big Delta simultaneously
 % regularization
 Theta1_grad = (1/m)*Theta1_grad + (lambda/m)* [zeros(size(Theta1_grad,1),1) Theta1(:,2:end)];
-
 
 Theta2_grad = (1/m)*Theta2_grad + (lambda/m)* [zeros(size(Theta2_grad,1),1) Theta2(:,2:end)];
 
